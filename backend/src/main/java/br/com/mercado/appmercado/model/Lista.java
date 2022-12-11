@@ -1,12 +1,15 @@
 package br.com.mercado.appmercado.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +32,9 @@ public class Lista {
 	
 	@Column(name = "status")
 	private Integer status;
+	
+	@OneToMany(mappedBy = "lista", cascade = CascadeType.ALL)
+	private List<ItemLista> itens;
 	
 	public Integer getId() {
 		return id;
@@ -59,6 +65,12 @@ public class Lista {
 	}
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+	public List<ItemLista> getItens() {
+		return itens;
+	}
+	public void setItens(List<ItemLista> itens) {
+		this.itens = itens;
 	}
 
 }

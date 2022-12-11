@@ -40,7 +40,7 @@ public class ItemLista {
 	private Lista lista;
 	
 	@OneToMany(mappedBy = "lista", cascade = CascadeType.ALL)
-	private List<ItemLista> items;
+	private List<ItemLista> itens;
 
 	public Integer getNumSeq() {
 		return numSeq;
@@ -90,12 +90,12 @@ public class ItemLista {
 		this.lista = lista;
 	}
 
-	public List<ItemLista> getItems() {
-		return items;
+	public List<ItemLista> getItens() {
+		return itens;
 	}
 
-	public void setItems(List<ItemLista> items) {
-		this.items = items;
+	public void setItens(List<ItemLista> itens) {
+		this.itens = itens;
 	}
 	
 }

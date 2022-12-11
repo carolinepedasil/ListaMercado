@@ -16,12 +16,8 @@ public class ProdutoServiceImpl implements IProdutoService {
 	
 	@Override
 	public Produto criarNovoProduto(Produto prod) {
+		if (prod.getNome() == null || prod.getNome().length() == 0) return null;
 		return repo.save(prod);
-	}
-
-	@Override
-	public Produto alterarProduto(Produto prod) {
-		return null;
 	}
 
 	@Override
@@ -31,12 +27,12 @@ public class ProdutoServiceImpl implements IProdutoService {
 
 	@Override
 	public List<Produto> buscarPorPalavraChave(String key) {
-		return null;
+		return repo.findAllByNomeContaining(key);
 	}
 
 	@Override
 	public Produto buscarPorId(Integer id) {
-		return null;
+		return repo.findById(id).orElse(null);
 	}
 
 }
